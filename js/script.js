@@ -37,6 +37,22 @@ function showList(array) {
 }
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  // Escribe tu solución aquí
-  // Sugerencia de cómo mostrar el array => showList(strangeArray);
+  // Filtrar SOLO elementos tipo string
+  const onlyStrings = strangeArray.filter((item) => typeof item === "string");
+
+  // Ordenarlos alfabéticamente
+  const orderedStrings = onlyStrings.sort((a, b) => {
+    if (a.toLowerCase() > b.toLowerCase()) {
+      return 1;
+    }
+    if (a.toLowerCase() < b.toLowerCase()) {
+      return -1;
+    }
+    return 0;
+  });
+
+  // Mostrar resultado en pantalla
+  console.log("Array original:", strangeArray);
+  console.log("Strings ordenados:", orderedStrings);
+  showList(orderedStrings);
 });
